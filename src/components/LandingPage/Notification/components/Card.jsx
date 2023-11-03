@@ -2,7 +2,7 @@ import React from 'react'
 
 const Card = ({ type, icon, dropdownValues, description, dormant }) => {
     return (
-        <div className='notification_card'>
+        <div className='notification_card' style={{marginRight:'10px'}}>
             <span className='notification_card_top'>
 
                 {icon}

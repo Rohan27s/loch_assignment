@@ -139,16 +139,16 @@ form>button:hover {
 .notification_cards {
   display: flex;
   gap: 10px;
-  transform: translateX(0);
-  animation: scroll 8s linear infinite;
+  /* transform: translateX(0); */
+  /* animation: scroll 8s linear infinite; */
 }
 
 
 
 
-.notification_slider:hover .notification_cards {
+/* .notification_slider:hover .notification_cards {
   animation-play-state: paused;
-}
+} */
 
 @keyframes scroll {
   0% {
@@ -184,6 +184,7 @@ form>button:hover {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  margin-right: 6px;
 }
 
 .notification_card p {
@@ -419,8 +420,8 @@ hr {
   .notification_container {
     display: flex;
     flex-direction: column;
-    margin: 47px 0;
-  }
+    margin: 47px 0 -145px 0;
+}
 
   .notification_content {
     width: 85%;
@@ -455,9 +456,22 @@ hr {
     position: relative;
     height: 140px;
     min-width: 180px;
+    /* margin-right: 10px; */
   }
 
-
+  .slick-slide {
+    margin: 0 10px;
+  }
+  .slick-list {
+    margin: 0 -10px;
+  }
+  .slick-slide > div {
+    margin: 0 10px;
+  }
+  .slick-list {
+    margin: 0 -10px;
+  }
+  
   .notification_slider:hover .notification_cards {
     animation-play-state: paused;
   }

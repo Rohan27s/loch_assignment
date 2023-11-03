@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Card from './components/Card'
-
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 const Notification = () => {
     const data = [
         {
@@ -45,7 +47,14 @@ const Notification = () => {
             dormant: true,
         },
     ];
-
+    const settings = {
+        infinite: true,
+        speed: 3000,
+        slidesToShow: 2,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 1000,
+    };
     return (
         <div className='notification_container'>
             <span className="notification_content">
@@ -61,16 +70,18 @@ const Notification = () => {
                 <p>Find out when a certain whale moves more than any preset amount on-chain or when a dormant whale you care about becomes active.</p>
             </span>
             <span className='notification_slider'>
-                <span className="notification_cards">
-                    {
-                        data.map((item) => (
-                            <>
-                                <Card type={item.type} key={item.id} icon={item.icon} dropdownValues={item.dropdownValues} description={item.description} dormant={item.dormant} />
-                            </>
-
-                        ))
-                    }
-                </span>
+                <Slider {...settings}>
+                    {data.map((item, index) => (
+                        <Card
+                            type={item.type}
+                            icon={item.icon}
+                            dropdownValues={item.dropdownValues}
+                            description={item.description}
+                            dormant={item.dormant}
+                            key={index}
+                        />
+                    ))}
+                </Slider>
             </span>
         </div>
     )
